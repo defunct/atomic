@@ -1,6 +1,6 @@
-package com.agtrz.swag.ctree;
+package com.goodworkalan.atomic;
 
-import com.agtrz.swag.chtree.CharacterTree;
+import com.goodworkalan.atomic.CharacterTree;
 
 import junit.framework.TestCase;
 
