@@ -3,13 +3,13 @@ package com.goodworkalan.atomic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CharacterTree
+public class AtomicSet
 {
     private final ObjectFactory factory;
     
     private final Node rootNode;
     
-    public CharacterTree(ObjectFactory factory)
+    public AtomicSet(ObjectFactory factory)
     {
         this.factory = factory;
         this.rootNode = new Node((char) 0, null);
@@ -168,7 +168,7 @@ public class CharacterTree
             this.right = right;
         }
         
-        public void add(CharSequence charSequence, int index, CharacterTree.ObjectFactory factory)
+        public void add(CharSequence charSequence, int index, AtomicSet.ObjectFactory factory)
         {
             char compare = charSequence.charAt(index);
             if (compare < character)
@@ -228,7 +228,7 @@ public class CharacterTree
             return true;
         }
         
-        public void visit(CharSequence charSequence, int index, CharacterTree.Visitor visitor)
+        public void visit(CharSequence charSequence, int index, AtomicSet.Visitor visitor)
         {
             char compare = charSequence.charAt(index);
             

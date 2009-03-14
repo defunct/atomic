@@ -1,15 +1,18 @@
 package com.goodworkalan.atomic;
 
-import com.goodworkalan.atomic.CharacterTree;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertNull;
+import static org.testng.Assert.assertTrue;
 
-import junit.framework.TestCase;
+import org.testng.annotations.Test;
 
-public class CharacterTreeTestCase
-extends TestCase
+public class AtomicSetTest
 {
+    @Test
     public void testCharacterNode()
     {
-        final CharacterTree.ObjectFactory factory = new CharacterTree.ObjectFactory()
+        final AtomicSet.ObjectFactory factory = new AtomicSet.ObjectFactory()
         {
             public Object newObject(char character)
             {
@@ -21,7 +24,7 @@ extends TestCase
             }
         };
 
-        CharacterTree tree = new CharacterTree(factory);
+        AtomicSet tree = new AtomicSet(factory);
 
         tree.put("us.");
         
