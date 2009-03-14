@@ -1,6 +1,3 @@
-/*
- * Copyright The Engine Room, LLC 2005. All Right Reserved.
- */
 package com.agtrz.swag.ctree;
 
 import com.agtrz.swag.chtree.CharacterTree;
