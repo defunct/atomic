@@ -114,14 +114,14 @@ public class AtomicSet
         return getVisitor.object;
     }
     
-    public List getAll(CharSequence charSequence)
+    public List<Object> getAll(CharSequence charSequence)
     {
         AccumulateVisitor accumulateVisitor = new AccumulateVisitor(null);
         rootNode.visit(charSequence, 0, accumulateVisitor);
         return accumulateVisitor.listOfObjects;
     }
     
-    public List getAll(CharSequence charSequence, String forCharacters)
+    public List<Object> getAll(CharSequence charSequence, String forCharacters)
     {
         AccumulateVisitor accumulateVisitor = new AccumulateVisitor(forCharacters);
         rootNode.visit(charSequence, 0, accumulateVisitor);
@@ -140,7 +140,7 @@ public class AtomicSet
         public Object newObject(char character);
     }
 
-    private final static  class Node
+    public final static  class Node
     {
         private final char character;
         
@@ -156,16 +156,6 @@ public class AtomicSet
         {
             this.character = character;
             this.object = object;
-        }
-        
-        public void setLeft(Node left)
-        {
-            this.left = left;
-        }
-        
-        public void setRight(Node right)
-        {
-            this.right = right;
         }
         
         public void add(CharSequence charSequence, int index, AtomicSet.ObjectFactory factory)
@@ -306,7 +296,7 @@ public class AtomicSet
     private final static class AccumulateVisitor
     implements Visitor
     {
-        public List listOfObjects = new ArrayList();
+        public List<Object> listOfObjects = new ArrayList<Object>();
         
         private final String match;
         

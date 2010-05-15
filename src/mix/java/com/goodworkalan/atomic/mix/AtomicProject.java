@@ -1,6 +1,5 @@
-package com.goodworkalan.cassandra.mix;
+package com.goodworkalan.atomic.mix;
 
-import com.goodworkalan.go.go.Artifact;
 import com.goodworkalan.mix.ProjectModule;
 import com.goodworkalan.mix.builder.Builder;
 import com.goodworkalan.mix.builder.JavaProject;
@@ -10,10 +9,15 @@ public class AtomicProject extends ProjectModule {
     public void build(Builder builder) {
         builder
             .cookbook(JavaProject.class)
-                .produces(new Artifact("com.goodworkalan/atomic/0.1"))
+                .produces("com.goodworkalan/atomic/0.1")
+                .main()
+                    .depends()
+                        .include("log4j/log4j/1.2.14")
+                        .end()
+                    .end()
                 .test()
                     .depends()
-                        .artifact(new Artifact("org.testng/testng/5.10/jdk15"))
+                        .include("org.testng/testng-jdk15/5.10")
                         .end()
                     .end()
                 .end()
